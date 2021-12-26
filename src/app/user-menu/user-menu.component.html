@@ -1,0 +1,13 @@
+
+<mat-toolbar color="primary">
+ <mat-toolbar-row>
+  <a mat-button [routerLink]="['/user/home/', uid]" routerLinkActive="active">Home</a>
+  <a mat-button [routerLink]="['/user/record', uid]" routerLinkActive="active">Simulation Records</a>
+  <a mat-button [routerLink]="['/user/userGaming', uid]" routerLinkActive="active">Run Simulation</a>
+  <a mat-button [routerLink]="['/user/aboutus', uid]" routerLinkActive="active">About us</a>
+  <span class="flex-spacer"></span>   
+  <a mat-button [routerLink]="['/home']" routerLinkActive="active">Logout</a>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+ 

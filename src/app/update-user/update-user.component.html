@@ -1,0 +1,29 @@
+<mat-toolbar style="text-align: center">
+  Update Details
+  <span class="flex-spacer"></span>
+  <button mat-button mat-dialog-close>&times;</button>
+</mat-toolbar>
+<div class="container">
+  <form novalidate #updateForm="ngForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+      <p>
+        <mat-form-field>
+          <input matInput placeholder="Email-ID" type="text" [(ngModel)]="email" name="email" #username="ngModel"
+            required>
+          <mat-error *ngIf="username.errors?.required">Email-ID is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Name" type="text" [(ngModel)]="name" name="name" #names="ngModel" required>
+          <mat-error *ngIf="names.errors?.required">Password is required</mat-error>
+        </mat-form-field>
+      </p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <span class="flex-spacer"></span>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button type="submit" mat-button class="background-primary 
+      text-floral-white" [disabled]="updateForm.form.invalid">Update</button>
+    </mat-dialog-actions>
+  </form>
+</div>

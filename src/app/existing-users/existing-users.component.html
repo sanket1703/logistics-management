@@ -1,0 +1,72 @@
+<app-admin-menu></app-admin-menu>
+
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>All Professors</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div *ngIf="norecordsShow">
+    <h3 matLine> No Records to show! </h3>
+  </div>
+
+  <ng-container *ngIf="recordsShow">
+    <table width="100%">
+      <tr>
+        <th>S. No.</th>
+        <th>Email ID</th>
+        <th>Prof Name</th>
+        <th>Operations</th>
+      </tr>
+      <tr *ngFor="let record of userRecords;let i=index">
+        <td>
+          {{i+1}}
+        </td>
+        <td>
+          {{record.email}}
+        </td>
+        <td>
+          {{record.name}}
+        </td>
+        <td>
+          <button mat-button style="color:red" (click)="deleteUser(i)">Delete</button>
+   
+        </td>
+      </tr>
+    </table>
+  </ng-container>
+</div>
+<!--
+  <ng-container *ngIf="recordsShow">
+    <table *ngFor="let record of userRecords;let i=index" width="100%">
+      <tr>
+        <th>User No: {{i+1}}</th>
+      </tr>
+      <tr>
+        <th>User ID</th>
+        <th>Name</th>
+        <th>Email ID</th>
+      </tr>
+      <tr>
+        <td>
+          <p>{{record.id}}</p>
+        </td>
+        <td>
+          <p>{{record.name}}</p>
+        </td>
+        <td>
+          <p>{{record.email}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><button mat-button style="color:red" (click)="deleteUser(i)">Delete</button></td>
+      </tr>
+    </table>
+  </ng-container>
+</div>
+-->

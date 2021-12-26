@@ -1,0 +1,36 @@
+<app-prof-menu></app-prof-menu>
+
+
+<table width="100%">  
+    <tr>
+        <th width="25%">Subscription starts:</th>
+        <th width="25%">Subscription ends:</th>
+        <th width="25%">Duration (in days) :</th>
+        <th width="25%">Active :</th>
+
+    </tr> 
+</table>
+
+<table width="100%">
+    <tr>
+      <td width="25%">{{SUBS[0].startDate}}</td>
+      <td width="25%">{{SUBS[0].endDate}}</td>
+      <td width="25%">{{SUBS[0].duration}}</td>
+      <td width="25%">{{SUBS[0].isActive}}</td>
+    </tr>  
+</table>
+
+<table width="100%">
+  <tr>
+    <th width="100%"> Student emails </th>
+  </tr>  
+</table>
+
+
+<table *ngFor="let a of SUBS[0].userEmails;let i=index" width="100%">  
+
+  <tr>
+    <td >{{a}}</td>
+  </tr>  
+</table>
+

@@ -1,0 +1,19 @@
+<app-admin-menu></app-admin-menu>
+
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>Users</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div fxFlex *ngIf="usernameUnique">
+    <mat-list>
+      <mat-list-item *ngFor="let username of usernameUnique; let i=index;">
+        <a (click) = "jumpToRecords(username)"><h3 matLine>{{i+1}}. {{username}} </h3></a>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

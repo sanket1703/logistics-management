@@ -1,0 +1,103 @@
+<app-prof-menu></app-prof-menu>
+
+<mat-toolbar color="primary">
+    <a mat-button (click)="goBack()"><span class="fa fa-list fa-lg"></span> Go Back </a>
+  </mat-toolbar>
+
+<div class="container"
+  fxLayout="column"
+  fxLayoutGap="10px">
+
+<div fxFlex> 
+ <div>
+   <h3>Games</h3>
+   <hr>
+ </div>
+</div>
+
+<div *ngIf="norecordsShow">
+    <h3 matLine>  No Records to show! </h3>
+</div>
+
+<ng-container *ngIf="userRecords;">
+  <table width="30%">  
+    <tr>
+      <th width="33%">Game No:</th>
+      <td width="33%">Student emails</td>
+      <td width="33%">Total Cost</td>
+    </tr>  
+  </table>
+    <table *ngFor="let record of USERS;let i=index" width="30%">  
+      <tr>
+        <th width="33%">{{i+1}}</th>
+        <td width="33%">{{record.username}}</td>
+        <td width="33%">{{record.totalCost}}</td>
+      </tr>  
+    </table>
+</ng-container>
+
+
+<ng-container *ngIf="gameNoshow">
+    <h3>Game no: {{gameNo +1}}</h3>
+    <table mat-table [dataSource]="data[gameNo]" class="mat-elevation-z8" width="100%">
+  
+      <ng-container matColumnDef="week">
+        <th mat-header-cell *matHeaderCellDef> Week /Round no. </th>
+        <td mat-cell *matCellDef="let element"> {{element.week}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="stock">
+        <th mat-header-cell *matHeaderCellDef> Stock </th>
+        <td mat-cell *matCellDef="let element"> {{element.stock}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="cPrice">
+        <th mat-header-cell *matHeaderCellDef> Chemical Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.cPrice}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="cDemand">
+        <th mat-header-cell *matHeaderCellDef> Customer Demand </th>
+        <td mat-cell *matCellDef="let element"> {{element.cDemand}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="orderRoad">
+        <th mat-header-cell *matHeaderCellDef> Order placed by Road </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderRoad}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="orderRail">
+        <th mat-header-cell *matHeaderCellDef> Order placed by Rail </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderRail}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="inventoryCost">
+        <th mat-header-cell *matHeaderCellDef> Inventory Cost </th>
+        <td mat-cell *matCellDef="let element"> {{element.inventoryCost}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="backlogCost">
+        <th mat-header-cell *matHeaderCellDef> Backlog Cost </th>
+        <td mat-cell *matCellDef="let element"> {{element.backlogCost}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="demmurageCost">
+        <th mat-header-cell *matHeaderCellDef> Demurrage Cost </th>
+        <td mat-cell *matCellDef="let element"> {{element.demmurageCost}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="transportationCost">
+        <th mat-header-cell *matHeaderCellDef> Transportation Cost </th>
+        <td mat-cell *matCellDef="let element"> {{element.transportationCost}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="totalCost">
+        <th mat-header-cell *matHeaderCellDef> Total Cost </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalCost}} </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </ng-container>
+  

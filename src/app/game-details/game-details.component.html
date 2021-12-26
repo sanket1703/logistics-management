@@ -1,0 +1,260 @@
+<app-prof-menu></app-prof-menu>
+
+<div class="container" fxLayout="column" fxLayoutGap="10px" *ngIf="gameDetails">
+
+  <div fxFlex>
+    <div>
+      <h3>Gaming Details Data</h3>
+      <hr>
+    </div>
+  </div>
+
+  <h3>Update Game Details (Week, Chemical price and Customer Demand)</h3>
+  <form novalidate #twForm="ngForm" (ngSubmit)="twOnSubmit()" *ngIf="twShow">
+    <div fxLayout="column">
+      <div fxLayout="row">
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Total Weeks" type="text" [(ngModel)]="totalWeeks" name="totalWeeks"
+              #totalweeks="ngModel" required>
+            <mat-error *ngIf="totalweeks.errors?.required">Field is required</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Total Storage" type="text" [(ngModel)]="totalStorage" name="totalStorage"
+              #totalstorages="ngModel" required>
+            <mat-error *ngIf="totalstorages.errors?.required">Field is required</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Inital Stock" type="text" [(ngModel)]="initialStock" name="initialStock"
+              #initialStocks="ngModel" required>
+            <mat-error *ngIf="initialStocks.errors?.required">Field is required</mat-error>
+          </mat-form-field>
+        </p>
+      </div>
+      <div fxLayout="row">
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Inventory Cost Factor" type="text" [(ngModel)]="invCostFactor"
+              name="invCostFactor" #invCostFactors="ngModel" required>
+            <mat-error *ngIf="invCostFactors.errors?.required">Field is required</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Backlog Cost Factor" type="text" [(ngModel)]="backlogCostFactor"
+              name="backlogCostFactor" #backlogCostFactors="ngModel" required>
+            <mat-error *ngIf="backlogCostFactors.errors?.required">Field is required</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Demurrage Cost Factor" type="text" [(ngModel)]="demmurageCostFactor"
+              name="demmurageCostFactor" #demmurageCostFactors="ngModel" required>
+            <mat-error *ngIf="demmurageCostFactors.errors?.required">Field is required</mat-error>
+          </mat-form-field>
+        </p>
+      </div>
+      
+      <div fxLayout="row">
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Truck Lead Time" type="text" [(ngModel)]="leadTimeTruck"
+              name="leadTimeTruck" #leadTimeTrucks="ngModel" required>
+            <mat-error *ngIf="leadTimeTrucks.errors?.required">Field is required</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="leadTimeTrain" type="text" [(ngModel)]="leadTimeTrain"
+              name="leadTimeTrain" #leadTimeTrains="ngModel" required>
+            <mat-error *ngIf="leadTimeTrains.errors?.required">Field is required</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Truck Freight Rate" type="text" [(ngModel)]="freightRateTruck"
+              name="freightRateTruck" #freightRateTrucks="ngModel" required>
+            <mat-error *ngIf="freightRateTrucks.errors?.required">Field is required</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Train Freight Rate" type="text" [(ngModel)]="freightRateTrain"
+              name="freightRateTrains" #freightRateTrains="ngModel" required>
+            <mat-error *ngIf="freightRateTrains.errors?.required">Field is required</mat-error>
+          </mat-form-field>
+        </p>
+      </div>
+    </div>
+    <button type="submit" mat-button class="background-primary 
+  text-floral-white" [disabled]="twForm.form.invalid">Next</button>
+  </form>
+
+  <table *ngIf="twShow" width="100%">
+    <tr>
+      <th>Initial Stock</th>
+      <td>{{gameDetails.stockInitial}}</td>
+    </tr>
+    <tr>
+      <th>Total Weeks</th>
+      <td>{{gameDetails.weeksTotal}}</td>
+    </tr>
+    <tr>
+      <th>Truck Lead Time</th>
+      <td>{{gameDetails.truckLeadTime}}</td>
+    </tr>
+    <tr>
+      <th>Train Lead Time</th>
+      <td>{{gameDetails.trainLeadTime}}</td>
+    </tr>
+    <tr>
+      <th>Truck Freight Rate</th>
+      <td>{{gameDetails.truckFreightRate}}</td>
+    </tr>
+    <tr>
+      <th>Train Freight Rate</th>
+      <td>{{gameDetails.trainFreightRate}}</td>
+    </tr>
+    <tr>
+      <th>Total Storage</th>
+      <td>{{gameDetails.storageTotal}}</td>
+    </tr>
+    <tr>
+      <th>Inventory Cost Factor</th>
+      <td>{{gameDetails.invCostFactor}}</td>
+    </tr>
+    <tr>
+      <th>Backlog Cost Factor</th>
+      <td>{{gameDetails.backlogCostFactor}}</td>
+    </tr>
+    <tr>
+      <th>Demmurage Cost Factor</th>
+      <td>{{gameDetails.demmurageCostFactor}}</td>
+    </tr>
+  </table>
+
+  <table *ngIf="twShow" width="100%">
+    <tr>
+      <th>Week</th>
+      <th>Chemical Price</th>
+      <th>Customer Demand</th>
+    </tr>
+    <ng-container *ngIf="twShow">
+      <tr *ngFor="let week of arrayTwo(gameDetails.weeksTotal); let i=index">
+        <td>
+          {{i+1}}
+        </td>
+        <td>
+          {{gameDetails.wpcs[i].price}}
+        </td>
+        <td>
+          {{gameDetails.wpcs[i].cDemand}}
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+
+  <form novalidate #WPCForm="ngForm" (ngSubmit)="wpcOnSubmit()" *ngIf="wpcShow">
+    <table width="100%">
+      <tr>
+        <th>Week</th>
+        <th>Chemical Price</th>
+        <th>Customer Demand</th>
+      </tr>
+      <ng-container *ngIf="show">
+        <tr *ngFor="let price of priceAll; let i=index">
+          <td>
+            <p>
+              {{weeksAll[i]}}
+            </p>
+          </td>
+          <td>
+            <p>
+              {{price}}
+            </p>
+          </td>
+          <td>
+            <p>
+              {{cDemandAll[i]}}
+            </p>
+          </td>
+
+        </tr>
+      </ng-container>
+      <tr>
+        <td>
+          <p>
+            <mat-form-field>
+              <input matInput placeholder="Week/ Round no." type="text" [(ngModel)]="weeks" name='weeks' #week="ngModel"
+                required>
+              <mat-error *ngIf="week.errors?.required">Field is required</mat-error>
+            </mat-form-field>
+          </p>
+        </td>
+        <td>
+          <p>
+            <mat-form-field>
+              <input matInput placeholder="Chemical Price" type="text" [(ngModel)]="price" name='price'
+                #cprice="ngModel" required>
+              <mat-error *ngIf="cprice.errors?.required">Field is required</mat-error>
+            </mat-form-field>
+          </p>
+        </td>
+        <td>
+          <p>
+            <mat-form-field>
+              <input matInput placeholder="Customer Demand" type="text" [(ngModel)]="cDemand" name="cDemand"
+                #demand="ngModel" required>
+              <mat-error *ngIf="demand.errors?.required">Field is required</mat-error>
+            </mat-form-field>
+          </p>
+        </td>
+      </tr>
+
+    </table>
+    <span class="flex-spacer"></span>
+    <button type="submit" mat-button class="background-primary 
+  text-floral-white" [disabled]="WPCForm.form.invalid">Next</button>
+
+  </form>
+
+  <form novalidate #WPCForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="submitShow">
+    <table width="100%">
+      <tr>
+        <th>Week</th>
+        <th>Chemical Price</th>
+        <th>Customer Demand</th>
+      </tr>
+      <ng-container *ngIf="show">
+        <tr *ngFor="let price of priceAll; let i=index">
+          <td>
+            <p>
+              {{weeksAll[i]}}
+            </p>
+          </td>
+          <td>
+            <p>
+              {{price}}
+            </p>
+          </td>
+          <td>
+            <p>
+              {{cDemandAll[i]}}
+            </p>
+          </td>
+
+        </tr>
+      </ng-container>
+
+    </table>
+    <span class="flex-spacer"></span>
+
+    <button type="submit" mat-button class="background-primary 
+  text-floral-white">Submit</button>
+
+  </form>
+</div>

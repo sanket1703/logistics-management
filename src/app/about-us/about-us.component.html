@@ -1,0 +1,183 @@
+<app-user-menu></app-user-menu>
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+  <div fxFlex>
+    <div>
+      <h3>About us</h3>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<div class="container"
+  fxLayout="row wrap" 
+  fxLayout.lt-sm="column" 
+  fxLayoutGap="32px" 
+  fxLayoutAlign="space-evenly start">
+   <mat-card   
+    fxFlex="0 1 calc(33.3% - 32px)"
+    fxFlex.lt-md="0 1 calc(50% - 32px)"
+    fxFlex.lt-sm="100%"
+    class="person-card">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image-sanjay"></div>
+      <mat-card-title>Prof. Sanjay Verma</mat-card-title>
+      <mat-card-subtitle>Information Systems Area, IIM Ahmedabad</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="/assets/img/sanjay.jpg" alt="Sanjay Verma's Image"> 
+    <mat-card-content>
+      <p class="serif mat-subheading-2">
+        Prof. Sanjay Verma - Information Systems Area, IIM Ahmedabad
+      </p>
+      
+      <p class="serif mat-body">
+        Enter about yourself
+      </p>
+      <p class="serif mat-body">
+        Enter about yourself
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+    <div fxLayout="column" fxLayoutAlign="space-evenly center" > 
+      <p class="serif mat-subheading-2">
+        Contact Details
+      </p>
+      <section class="serif mat-body-2">
+        Email Address : Enter your email
+      </section>
+      <button mat-button><a href="mailto:#enter your email">Send a mail</a></button>
+      
+      <div fxLayout="row" fxLayoutAlign="space-around center" > 
+      <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    </mat-card-actions>
+  </mat-card>
+    
+  <mat-card 
+    fxFlex="0 1 calc(33.3% - 32px)"
+    fxFlex.lt-md="0 1 calc(50% - 32px)"
+    fxFlex.lt-sm="100%"
+    class="person-card">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image-aayush"></div>
+      <mat-card-title>Aayush Gupta</mat-card-title>
+      <mat-card-subtitle>Student at Vellore Institute of Technology</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="/assets/img/aayush.png" alt="Aayush Gupta's Image">
+    <mat-card-content>
+      <p class="serif mat-subheading-2">
+        Aayush Gupta - Vellore Institute of Technology (21' Batch)
+      </p>
+      <p class="serif mat-body">
+        A Budding Engineer with a knack for solving real world problems aided with Computer Science tools. <br>
+      </p>
+      <p class="serif mat-body">
+        A technical enthusiast in Machine Learning, Cloud Computing and an intermediate in Web Development and Android Application Development.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+    <div fxLayout="column" fxLayoutAlign="space-evenly center" > 
+      <p class="serif mat-subheading-2">
+        Contact Details
+      </p>
+      <section class="serif mat-body-2">
+        Email Address : aayush0019@gmail.com
+      </section>
+      <button mat-button><a href="mailto:aayush0019@gmail.com">Send a mail</a></button>
+      
+      <div fxLayout="row" fxLayoutAlign="space-around center" > 
+      <a href="https://github.com/aayush0019"><i class="fa fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/aayush-gupta-96baa6144/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    </mat-card-actions>
+  </mat-card>
+  
+</div>
+
+
+
+
+
+
+
+<!--
+<div fxLayout="row" fxLayoutAlign="space-around center"> 
+
+  <mat-card class="person-card">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image-sanjay"></div>
+      <mat-card-title>Prof. Sanjay Verma</mat-card-title>
+      <mat-card-subtitle>Information Systems Area, IIM Ahmedabad</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="/assets/img/sanjay.jpg" alt="Sanjay Verma's Image"> 
+    <mat-card-content>
+      <p class="serif mat-subheading-2">
+        Prof. Sanjay Verma - Information Systems Area, IIM Ahmedabad
+      </p>
+      
+      <p class="serif mat-body">
+        Enter about yourself
+      </p>
+      <p class="serif mat-body">
+        Enter about yourself
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+    <div fxLayout="column" fxLayoutAlign="space-evenly center" > 
+      <p class="serif mat-subheading-2">
+        Contact Details
+      </p>
+      <section class="serif mat-body-2">
+        Email Address : Enter your email
+      </section>
+      <button mat-button><a href="mailto:#enter your email">Send a mail</a></button>
+      
+      <div fxLayout="row" fxLayoutAlign="space-around center" > 
+      <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    </mat-card-actions>
+  </mat-card>
+    
+  <mat-card class="person-card">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image-aayush"></div>
+      <mat-card-title>Aayush Gupta</mat-card-title>
+      <mat-card-subtitle>Student at Vellore Institute of Technology</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="/assets/img/aayush.png" alt="Aayush Gupta's Image">
+    <mat-card-content>
+      <p class="serif mat-subheading-2">
+        Aayush Gupta - Vellore Institute of Technology (21' Batch)
+      </p>
+      <p class="serif mat-body">
+        B.Tech CSE Undergraduate student from Vellore Institute Of Technology - '21 Batch <br>
+      </p>
+      <p class="serif mat-body">
+        A technical enthusiast in Machine Learning, Cloud Computing and an intermediate in Web Development and Android Application Development.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+    <div fxLayout="column" fxLayoutAlign="space-evenly center" > 
+      <p class="serif mat-subheading-2">
+        Contact Details
+      </p>
+      <section class="serif mat-body-2">
+        Email Address : aayush0019@gmail.com
+      </section>
+      <button mat-button><a href="mailto:aayush0019@gmail.com">Send a mail</a></button>
+      
+      <div fxLayout="row" fxLayoutAlign="space-around center" > 
+      <a href="https://github.com/aayush0019"><i class="fa fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/aayush-gupta-96baa6144/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    </mat-card-actions>
+  </mat-card>
+    
+</div>
+<br><br>
+-->

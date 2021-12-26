@@ -1,0 +1,39 @@
+<app-prof-menu></app-prof-menu>
+
+<div class="container">
+    <form novalidate [formGroup]="subscriptionForm" #lform="ngForm" (ngSubmit)="onSubscribeSubmit(lform.value)">
+        <p>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Choose start date</mat-label>
+                <input matInput formControlName="startDate" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker">
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Choose a end date</mat-label>
+                <input matInput formControlName="endDate" [matDatepicker]="pickernew">
+                <mat-datepicker-toggle matSuffix [for]="pickernew">
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #pickernew></mat-datepicker>
+              </mat-form-field>
+        </p>
+
+      
+        <p>
+        <mat-form-field>
+          <input matInput formControlName="userEmails" placeholder="Enter user email" type="text" required>
+        </mat-form-field>
+      </p>
+      <button type="submit" mat-button class="background-primary
+      text-floral-white">Subscribe</button>
+    </form>
+  
+  </div>
+
+

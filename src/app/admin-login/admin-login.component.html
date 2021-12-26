@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  Admin Login
+</mat-toolbar>
+
+<div class="container">
+  <form novalidate [formGroup]="AdminLoginForm" #lform="ngForm" (ngSubmit)="onLoginSubmit()">
+    <p>
+      <mat-form-field>
+        <input matInput formControlName="email" placeholder="Username" type="text" required>
+        <mat-error *ngIf="formErrors.username">{{formErrors.username}}</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <input matInput placeholder="Password" type="password" formControlName="password" required>
+        <mat-error *ngIf="formErrors.password">{{formErrors.password}}</mat-error>
+      </mat-form-field>
+    </p>
+    <button type="submit" mat-button class="background-primary
+      text-floral-white">Login</button>
+  </form>
+
+</div>

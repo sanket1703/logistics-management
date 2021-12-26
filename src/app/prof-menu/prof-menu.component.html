@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+
+    <a mat-button (click)="onHome()">Home</a>
+    <a *ngIf="isSub==false" mat-button routerLink="/prof/home/new/subscription" routerLinkActive="active">New Subscription</a>
+    <a *ngIf="isSub==true" mat-button routerLink="/prof/home/my/subscriptions" routerLinkActive="active">My Subscriptions</a>
+    <a mat-button routerLink="/prof/home/records/all" routerLinkActive="active">All Game Records</a>
+    <a mat-button routerLink="/prof/home/edit/gameDetails" routerLinkActive="active">Edit game details</a>
+    <span class="flex-spacer"></span>
+    
+    <a mat-button (click)="onLogOut()" > Logout </a>
+</mat-toolbar>

@@ -1,0 +1,96 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+// some basic resets 
+
+$lt-gray: #ddd;
+$primary-color:        #000080;//#673AB7;
+
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
+}
+
+body { 
+  padding: 0; 
+  margin: 0; 
+  font-family: Roboto, sans-serif; 
+  
+}
+
+.container{
+    margin:20px;
+    display:flex;
+}
+
+
+.background-primary {
+    background-color: $primary-color!important;
+  }
+.background-accent {
+    background-color: $primary-color!important;
+  }
+.text-floral-white {
+    color: floralwhite!important;
+}
+
+.flex-spacer {
+  flex: 1 1 auto;
+}
+
+.highlight {
+    background-color: $primary-color;
+    border: 1px solid $primary-color;
+    z-index: 1;
+    transform: scale(1.01);
+}
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+}
+
+tr, td{
+  height: 0px;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 2px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-align: center;
+  background-color: #000080;
+  color: white;
+}
+.mat-header-cell {
+  color: #fff;
+}
+
+.mat-toolbar {
+  background: #000080;
+  color: white;
+}
+
+.mat-toolbar.mat-primary, .footercolor {
+  background: #000080;
+  color: #fff;
+}
+
+.headercolor{
+  background:white;
+  color: #000080;
+}
+table, th, td {
+  border: 1px solid #000000;
+  text-align: center;
+}

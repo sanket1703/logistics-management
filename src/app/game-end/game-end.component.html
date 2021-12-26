@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" style="text-align: center">
+  Thank you!
+  <span class="flex-spacer"></span>
+  <button mat-button (click)="onSubmit()">&times;</button>
+</mat-toolbar>
+<div style="text-align: center">
+  <mat-dialog-content>
+    <h3 matLine>Your Final Submitted Score is {{data.finalScore}}!</h3>
+  </mat-dialog-content>
+
+  <mat-dialog-actions fx>
+    <button (click)="onSubmit()" mat-button class="background-primary 
+        text-floral-white">Home</button>
+  </mat-dialog-actions>
+</div>

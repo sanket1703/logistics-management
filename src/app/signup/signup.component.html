@@ -1,0 +1,35 @@
+<app-admin-menu></app-admin-menu>
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>Signup New User</h3>
+      <hr>
+    </div>
+  </div>
+    <form novalidate [formGroup]="signupForm" #sform="ngForm" (ngSubmit)="onSignupSubmit()">
+      <p>
+        <mat-form-field>
+          <input matInput formControlName="name" placeholder="Name" type="text" required>
+          <mat-error *ngIf="formErrors.name">{{formErrors.name}}</mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input matInput formControlName="email" placeholder="Email-ID" type="text" required>
+          <mat-error *ngIf="formErrors.email">{{formErrors.email}}</mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+      <mat-form-field>
+            <input matInput placeholder="Password" type="password" formControlName="password" required>
+            <mat-error *ngIf="formErrors.password">{{formErrors.password}}</mat-error>
+        </mat-form-field>
+      </p>
+      <button type="submit" mat-button class="background-primary
+      text-floral-white" >Sign Up</button>
+    </form>
+</div>
+  

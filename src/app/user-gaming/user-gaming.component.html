@@ -1,0 +1,197 @@
+<app-user-menu></app-user-menu>
+
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>Simulation</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <button mat-button (click)="onServerLoad()" *ngIf="!start">Click to start the simulation </button>
+  </div>
+
+  <ng-container *ngIf="start">
+
+    <h4 matLine>Initial Game Details - Cost Factors and Inventory</h4>
+    <table *ngIf="gDetailsShow" width="100%">
+      <tr>
+        <th>Total Weeks</th>
+        <th>Total Storage</th>
+        <th>Initial Stock</th>
+        <th>Inventory Cost Factor</th>
+        <th>Backlog Cost Factor</th>
+        <th>Demurrage Cost Factor</th>
+      </tr>
+      <ng-container *ngIf="gDetailsShow">
+        <tr>
+          <td>
+            {{gDetail.weeksTotal}}
+          </td>
+          <td>
+            {{gDetail.storageTotal}}
+          </td>
+          <td>
+            {{gDetail.stockInitial}}
+          </td>
+          <td>
+            {{invCostFactor}}
+          </td>
+          <td>
+            {{backlogCostFactor}}
+          </td>
+          <td>
+            {{demmurageCostFactor}}
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+
+    <table *ngIf="gDetailsShow" width="100%">
+      <tr>
+        <th>Truck Lead Time</th>
+        <th>Train Lead Time</th>
+        <th>Truck Freight Rate</th>
+        <th>Train Freight Rate</th>
+      </tr>
+      <ng-container *ngIf="gDetailsShow">
+        <tr>
+          <td>
+            {{gDetail.truckLeadTime}}
+          </td>
+          <td>
+            {{gDetail.trainLeadTime}}
+          </td>
+          <td>
+            {{gDetail.truckFreightRate}}
+          </td>
+          <td>
+            {{gDetail.trainFreightRate}}
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+
+    <div style="text-align: center">
+      <h3>Enter Orders</h3>
+      <form novalidate [formGroup]="orderForm" #oform="ngForm" (ngSubmit)="onOrderSubmit()" *ngIf="orderFormShow">
+        <p>
+          <mat-form-field>
+            <input matInput formControlName="orderRoad" placeholder="Road Order" type="text" pattern="[0-9]*"
+              required>
+            <mat-error *ngIf="formErrors.orderRoad">{{formErrors.orderRoad}}</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput formControlName="orderRail" placeholder="Rail Order" type="text" pattern="[0-9]*"
+              required>
+            <mat-error *ngIf="formErrors.orderRail">{{formErrors.orderRail}}</mat-error>
+          </mat-form-field>
+        </p>
+        <button type="submit" mat-button class="background-primary
+    text-floral-white" [disabled]="oform.form.invalid">Order/Next Round</button>
+      </form>
+      <button type="submit" mat-button class="background-primary
+    text-floral-white" *ngIf="submitShow" (click)="finalSubmit()">Submit Final Score</button>
+    </div>
+
+    
+  
+  <h4 matLine>Price-Demand Table</h4>
+
+    <table *ngIf="gDetailsShow" width="100%">
+      <tr>
+        <th>Week</th>
+        <th>Chemical Price</th>
+        <th>Customer Demand</th>
+        <th>Inventory Items(Stock)</th>
+        <th>Backlog Items</th>
+        <th>Demurrage Items</th>
+        <th>Receipt</th>
+        <th>Total Demand</th>
+        <th>Customer fulfilled demand</th>
+        <th>Order Placed by Road</th>
+        <th>Order Placed by Rail</th>
+        <th>Balance Stock</th>
+        <th>Shortage</th>
+        <th>In warehouse</th>
+        <th>Inventory Cost</th>
+        <th>Backlog Cost</th>
+        <th>Demurrage Cost</th>
+        <th>Transportation Cost</th>
+        <th>Weekly Total Cost</th>
+        <th>Cumm. Total Cost</th>
+      </tr>
+      <ng-container *ngIf="gDetailsShow">
+        <tr *ngFor="let week of arrayTwo(week); let i=index">
+          <td>
+            {{i+1}}
+          </td>
+          <td>
+            {{gDetail.wpcs[i].price}}
+          </td>
+          <td>
+            {{gDetail.wpcs[i].cDemand}}
+          </td>
+          <td>
+            {{inventoryStock[i]}}
+          </td>
+          <td>
+            {{backlogItems[i]}}
+          </td>
+          <td>
+            {{demmurageItems[i]}}
+          </td>
+          <td>
+            {{receiptsAll[i]}}
+          </td>
+          <td>
+            {{gDetail.wpcs[i].cDemand + backlogItems[i]}}
+          </td>
+          <td>
+            {{cFulfilledDemands[i]}}
+          </td>
+          <td>
+            {{orderRoad[i]}}
+          </td>
+          <td>
+            {{orderRail[i]}}
+          </td>
+          <td>
+            {{balanceStock[i]}}
+          </td>
+          <td>
+            {{shortageAll[i]}}
+          </td>
+          <td>
+            {{warehouseStock[i]}}
+          </td>
+
+          <td>
+            {{invCosts[i]}}
+          </td>
+          <td>
+            {{blogCosts[i]}}
+          </td>
+          <td>
+            {{demCosts[i]}}
+          </td>
+          <td>
+            {{transportCosts[i]}}
+          </td>
+          <td>
+            {{weeklyTotalCosts[i]}}
+          </td>
+          <td>
+            {{totalCosts[i]}}
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+
+
+  </ng-container>
+</div>
