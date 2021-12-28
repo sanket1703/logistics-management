@@ -60,6 +60,8 @@ export class ProfSignupComponent implements OnInit {
       this.gameDetailsService.putGameDetailsf(GameDetails,docRef.id)
     })
     
+    alert('Professor '+ this.profDetailcopy.name + ' is successfully added!')
+
     this.router.navigate(['/prof/home']);
 
   }

@@ -64,6 +64,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProfMySubscriptionsComponent } from './prof-my-subscriptions/prof-my-subscriptions.component';
 
 import { ProfRecordsComponent } from './prof-records/prof-records.component';
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { ProfRecordsComponent } from './prof-records/prof-records.component';
     ProfNewSubscriptionComponent,
     ProfMySubscriptionsComponent,
  
-    ProfRecordsComponent
+    ProfRecordsComponent,
+      LandingComponent
   ],
   imports: [
   BrowserModule,

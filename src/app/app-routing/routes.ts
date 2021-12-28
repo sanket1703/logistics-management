@@ -18,6 +18,7 @@ import { ProfNewSubscriptionComponent } from '../prof-new-subscription/prof-new-
 import { ProfMenuComponent } from '../prof-menu/prof-menu.component';
 import { ProfMySubscriptionsComponent } from '../prof-my-subscriptions/prof-my-subscriptions.component';
 import { ProfRecordsComponent } from '../prof-records/prof-records.component';
+import { LandingComponent } from '../landing/landing.component';
 
 export const routes: Routes = [
   { path: 'user/userLogin', component: LoginComponent },
@@ -42,7 +43,9 @@ export const routes: Routes = [
   { path: 'prof/home/my/subscriptions', component: ProfMySubscriptionsComponent },
   { path: 'prof/home/edit/gameDetails', component: GameDetailsComponent },
   { path: 'prof/home/records/all',component:ProfRecordsComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: LandingComponent },
+  
+  { path: 'landing', component : HomeComponent },
   
 
   { path: '', redirectTo: 'home', pathMatch: 'full' }
